@@ -1,0 +1,74 @@
+@import "../../CSS/general.css";
+
+.notion-toggle { border-radius: 6px;}
+
+.notion-toggle-header 
+{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.notion-toggle-header:hover 
+{  
+
+}
+
+.toggle-arrow 
+{
+  font-size:x-small !important;
+  flex-shrink: 0;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  font-size: 14px;
+  color: var(--text);
+  transition: transform 0.18s ease;
+}
+
+.notion-toggle.open .toggle-arrow 
+{ 
+    transform: rotate(90deg); 
+}
+
+.toggle-title 
+{
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1;
+  text-align: left !important;
+}
+
+.toggle-body 
+{
+  display: none;
+  padding: 0 0 0 38px;
+}
+
+.notion-toggle.open .toggle-body { display: block; }
+
+.toggle-block 
+{
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1;
+}
+
+.toggle-block img 
+{
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 1px 0;
+  display: block;
+}
+
+.toggle-block ul { padding-left: 32px; }

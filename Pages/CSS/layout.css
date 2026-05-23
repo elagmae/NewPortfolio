@@ -1,0 +1,96 @@
+@import "../../CSS/general.css";
+
+/*#region Base Layout*/
+
+project-banner 
+{
+    display: block;
+    height: 256px;
+    margin-top:4rem;
+    background: center/cover no-repeat;
+    position: relative;
+}
+
+project-banner::after 
+{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+projects-layout 
+{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+skill-set::part(container) 
+{
+    border: none;
+}
+
+projects-main, projects-sidebar 
+{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+projects-sidebar img
+{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+project-pitch, project-details, project-links, project-conclusion, project-tags, project-infos, project-screens 
+{
+  display: block;
+  width: 100%;
+
+  backdrop-filter: blur(5px);
+  background: #ffffff04;
+  color: var(--text);
+  border-color:rgba(255, 255, 255, 0.07);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+
+  padding: 24px 24px;
+
+  font-size: clamp(18px, 2vw, 42px);
+  text-align: center;
+
+  min-height: auto;
+}
+
+/*#endregion Base Layout*/
+
+/*#region Mobile Layout*/
+
+@media (max-width: 900px) 
+{
+
+    projects-layout 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    projects-main, projects-sidebar 
+    {
+        gap: 16px;
+    }
+
+    project-pitch, project-links, project-details, project-conclusion, project-tags, project-infos, project-screens 
+    {
+        min-height: auto;
+        padding: 32px 20px;
+        font-size: 22px;
+    }
+
+}
+
+/*#endregion Mobile Layout*/

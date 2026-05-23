@@ -1,0 +1,150 @@
+/*#region Variables*/
+
+*
+{
+    --nav-color:#030510;
+    --bg: #070816;
+    --bg-alt: #0D1024;
+
+    --scrollbar-front: #141933;
+    --scrollbar-back: #1e264e;
+
+    --primary: #7B61FF;
+    --primary-hover: #927BFF;
+
+    --secondary: #58D5FF;
+
+    --text: #F5F7FF;
+    --text-muted: #B6C0E5;
+    --text-soft: #7E89B8;
+
+    --border: rgba(123,97,255,.14);
+    --shadow: rgba(123,97,255,.22);
+}
+
+/*#endregion Variables*/
+
+/*#region Body*/
+
+html, body
+{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*
+{
+    scrollbar-color: var(--scrollbar-back) var(--scrollbar-front);
+
+    scroll-margin-top: 5rem;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+
+    padding:0;
+    margin:0;
+}
+
+body
+{
+    background-color: var(--bg);
+}
+
+/*#endregion Body*/
+
+/*#region Fonts*/
+
+*
+{
+    font-family: "Montserrat", sans-serif;
+    color:white;
+}
+
+ul
+{
+    padding-left: 2rem;
+}
+
+p, li
+{
+    font-weight: normal;
+    font-size: small;
+}
+
+h3
+{
+    font-weight:bolder;
+    font-size:larger;
+}
+
+h4
+{
+
+    font-weight:500;
+    font-size:medium;
+}
+
+h5
+{
+    font-weight:bold;
+    font-size:12px;
+}
+
+span
+{
+    display: inline-block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/*#endregion Fonts*/
+
+/*#region Components*/
+
+divider-horizontal
+{
+    display: block;
+    justify-self: center !important;
+    justify-content: center !important;
+
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.058);
+    margin:5px;
+}
+
+divider-vertical 
+{
+    display: block;
+    justify-self: center !important;
+    justify-content: center !important;
+
+    width: 1px;
+    background-color: rgba(255,255,255,0.15);
+    margin: 5px;
+}
+
+/*#endregion Components*/
+
+/* #region Reusables */
+svg
+{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+* a
+{
+    transition: 0.2s;
+}
+
+* a:hover
+{
+    transition:0.2s;
+    transform: translateY(-5px);
+}
+
+/* #endregion Reusables */

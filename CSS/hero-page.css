@@ -1,0 +1,19 @@
+@import "general.css";
+
+hero-page h2, hero-page p
+{
+    margin:1rem;
+    text-align: center;
+    color:white;
+}
+
+hero-page h2
+{
+    margin:1rem;
+}
+
+hero-page
+{
+    display:block;
+    padding:1rem;
+}

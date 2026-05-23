@@ -1,0 +1,302 @@
+@import "general.css";
+
+header {width:100%;}
+
+/*#region Banner*/
+
+/*#region Banner-PC*/
+
+@media (min-width: 600px)
+{
+    banner-profile
+    {
+        display: grid;
+        align-items: center;
+        justify-content: left !important;
+        grid-template-columns: 5rem auto;
+        grid-gap:1rem;
+    }
+
+    banner-profile role-description
+    {
+        align-items: center;
+        display: flex;
+    }
+
+    banner-profile img
+    {
+        width: clamp(3rem, 6rem, 12rem) !important;
+    }
+
+    banner-profile profile-section
+    {
+        margin-left: 1rem;
+        text-align: left;
+    }
+
+    banner-profile p
+    {
+        text-align: left;
+    }
+}
+
+/*#endregion Banner-PC*/
+
+banner-profile
+{
+        position: relative;
+        overflow: hidden;
+
+        justify-content: center;
+
+        padding: 2rem;
+        margin-top: 4rem;
+        width: inherit;
+
+        background-size:cover;
+        background-image:
+        linear-gradient(#030112a1, #030112a1),
+        url("../Sources/Header/Banner.png");
+
+        -webkit-mask-image: url("../Sources/Header/WaveMask.png");
+        mask-image: url("../Sources/Header/WaveMask.png");
+
+        -webkit-mask-repeat: repeat-x;
+        mask-repeat: repeat-x;
+
+        -webkit-mask-size: 2481px 100%;
+        mask-size: 2481px 100%;
+
+        animation: WaveAnim 8s linear infinite;
+}
+
+banner-profile h5
+{
+    display: block;
+    align-items: center;
+    margin:10px;
+    justify-self: center;
+
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    color: #b9d4ff;
+    font-size: 14px;
+
+    background: rgba(30, 60, 120, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(120, 180, 255, 0.35);
+
+    box-shadow:
+    0 0 10px rgba(80, 140, 255, 0.25),
+    inset 0 0 10px rgba(80, 140, 255, 0.15);
+
+    position: relative;
+    overflow: hidden;
+}
+
+banner-profile h4::before
+{
+    content: "";
+    position: absolute;
+    inset: -2px;
+
+    background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(120, 152, 255, 0.125),
+    transparent
+    );
+
+    animation: glowMove 8s linear infinite;
+}
+
+banner-profile h4 > * 
+{
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes glowMove 
+{
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+banner-profile p, banner-profile h3, banner-profile h4
+{
+    display: block;
+    color:white;
+    margin:5px;
+}
+
+banner-profile img
+{
+    justify-self: center;
+    border-radius: 99px;
+
+    width: clamp(1rem, 5rem, 10rem);
+    height: auto;
+
+    object-fit: cover;
+}
+
+/*#region Banner-Mobile*/
+
+@media (max-width: 600px)
+{
+
+    banner-profile p, banner-profile h2, banner-profile h4
+    {
+        text-align: center;
+    }
+
+
+    banner-profile
+    {
+        display: block;
+    }
+
+    banner-profile img{display:block;}
+}
+
+/*#endregion Banner-Mobile*/
+
+@keyframes WaveAnim 
+{
+    from 
+    {
+        -webkit-mask-position: 0 0;
+        mask-position: 0 0;
+    }
+
+    to 
+    {
+        -webkit-mask-position: -2481px 0;
+        mask-position: -2481px 0;
+    }
+}
+
+/*#endregion Banner*/
+
+/*#region NavBar*/
+
+/* Shows the dropdown on mobile devices*/
+@media (max-width: 950px)
+{
+    #menu-btn { display: block; }
+    full-nav, full-nav a, full-nav main-links, full-nav divider-vertical { display: none;}
+}
+
+/*Show the full navbar on wider screens.*/
+@media (min-width: 950px)
+{
+    #menu-btn { display: none; }
+    full-nav { display: flex;}
+}
+
+full-nav
+{
+    display: flex;
+    flex-direction: row;
+    margin-left:auto;
+    gap : 1rem;
+    align-self: center;
+    align-items: center;
+}
+
+nav, nav-dropdown
+{
+    display: flex;
+    flex-direction: row;
+
+    top:0;
+
+    height:20rem;
+    align-items: center;
+
+    width:inherit;
+    height:auto;
+
+    z-index: 1000;
+    position:fixed;
+    background-color:var(--nav-color);
+
+    padding: 1rem;
+}
+
+nav a
+{
+    margin-right: auto;
+
+    color:white;
+    text-decoration: none;
+}
+
+nav button
+{
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: white;
+
+    width: 20px;
+    height: 20px;
+}
+
+/*#endregion NavBar*/
+
+/*#region Dropdown*/
+
+nav-dropdown
+{
+    transition: 0.2s;
+    position:fixed;
+    display: flex;
+
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    top:1.4rem;
+    height:auto;
+    margin-top:2rem;
+
+}
+
+nav-dropdown.active 
+{
+    transition: 0.2s;
+    opacity: 1;
+    background-color:#060813c5;
+    pointer-events:all;
+    backdrop-filter: blur(10px);
+}
+
+nav-dropdown a
+{
+    text-decoration: none!important;
+    color:white;
+    align-content: center;
+
+    display: block;
+    padding:5px;
+    margin-right: auto;
+}
+
+main-links
+{
+    display: flex;
+    margin-right: auto;
+    flex-wrap: nowrap;
+    gap:10px;
+}
+
+main-links a
+{
+    height:2rem;
+    width:auto;
+}
+
+/*#endregion Dropdown*/
