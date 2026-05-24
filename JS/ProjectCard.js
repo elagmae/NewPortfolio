@@ -38,7 +38,7 @@ class ProjectCard extends HTMLElement {
 
         .image {
           position: relative;
-          height: 224px;
+          height: 242px;
           overflow: hidden;
         }
 

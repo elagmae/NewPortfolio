@@ -112,51 +112,60 @@
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    function renderContent(content) 
-    {
-        if (typeof content === "string") 
-        {
-            return `<p>${content}</p>`;
-        }
+function renderContent(content) {
+    if (typeof content === "string") {
+        return `<p>${content}</p>`;
+    }
 
-    
-    return content.map(block => 
-    {
-        switch (block.type) {
-            case "title":
-                return `<p style="font-size:medium; font-weight:bold;">${block.value}</p>`;
-            case "text":
-                return `<p style="line-height:1.5">${block.value}</p>`;
-            case "image":
-            case "gif":
-                return `
-                    <figure style="
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin: 1rem auto;
-                        width: fit-content;
-                        "
-                    >
-                        <img style="
-                        object-fit:cover;
-                            width: auto;
-                            height: 256px !important;"
-                        
-                        src="${block.src}" alt="${block.caption ?? ""}">
-                        ${block.caption ? `<figcaption style="
-                                                text-align: center;
-                                                margin-top: 0.5rem;
-                                                font-size: 0.85rem;"
-                        
-                        >${block.caption} </figcaption>` : ""}
-                    </figure>`;
-            case "link":
-                return `<a href="${block.href}" target="_blank">${block.label}</a>`;
-            default:
-                return "";
+    const result = [];
+    let i = 0;
+
+    while (i < content.length) {
+        const block = content[i];
+
+        if (block.type === "image" || block.type === "gif") {
+            const group = [];
+            while (i < content.length && (content[i].type === "image" || content[i].type === "gif")) {
+                group.push(content[i]);
+                i++;
+            }
+
+            if (group.length === 1) {
+                const b = group[0];
+                result.push(`
+                    <figure style="display:flex;flex-direction:column;align-items:center;margin:1rem auto;width:fit-content;">
+                        <img style="object-fit:cover;width:auto;height:256px;" src="${b.src}" alt="${b.caption ?? ""}">
+                        ${b.caption ? `<figcaption style="text-align:center;margin-top:0.5rem;font-size:0.85rem;">${b.caption}</figcaption>` : ""}
+                    </figure>`);
+            } else {
+                const figures = group.map(b => `
+                    <figure style="display:flex;flex-direction:column;align-items:center;margin:0;flex:1 1 160px;min-width:0;">
+                        <img style="object-fit:cover;width:100%;height:200px;border-radius:4px;" src="${b.src}" alt="${b.caption ?? ""}">
+                        ${b.caption ? `<figcaption style="text-align:center;margin-top:0.4rem;font-size:0.8rem;">${b.caption}</figcaption>` : ""}
+                    </figure>`).join("");
+                result.push(`<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin:1rem 0;">${figures}</div>`);
+            }
+
+        } else {
+            // Tous les autres types — identique à l'original
+            switch (block.type) {
+                case "title":
+                    result.push(`<p style="font-size:medium; font-weight:bold;">${block.value}</p>`);
+                    break;
+                case "text":
+                    result.push(`<p style="line-height:1.5">${block.value}</p>`);
+                    break;
+                case "link":
+                    result.push(`<a href="${block.href}" target="_blank">${block.label}</a>`);
+                    break;
+                default:
+                    break;
+            }
+            i++;
         }
-    }).join("");
+    }
+
+    return result.join("");
 }
     </script>
 

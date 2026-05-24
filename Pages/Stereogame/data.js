@@ -63,9 +63,12 @@ const PROJECT = {
                     content: [
                         { type: "title", value: "🔧 What?" },
                         { type: "text",  value: "Built the core torch mechanic: the player's light follows the cursor or finger across a darkened scene to reveal hidden objects." },
+                        
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Structured the scene as a layered UI stack: a base canvas with all hidden items, topped by a dark overlay image simulating a lightless room. The player is represented as a circular UI sprite used as a mask cutout in the overlay, revealing the real scene underneath as they move." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/PlayerNav.gif", caption:"Player movement mecanic"},
                         { type: "text",  value: "Also implemented a screen shake system and detection zone logic with editor Gizmos, giving level designers full control over per-object difficulty without code changes." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/ObjectDetection.gif", caption:"Object Detection Demo"},
                     ]
                 },
                 {
@@ -82,6 +85,8 @@ const PROJECT = {
                     content: [
                         { type: "title", value: "🔧 What?" },
                         { type: "text",  value: "Built the level progression system and the gallery navigation." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/LevelNav.gif", caption:"Level navigation demo"},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/GaleryNav.gif", caption:"Galery navigation demo"},
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Unlocking a level activates the corresponding navigation button and triggers a transition to the next scene. Players can also navigate backward with the opposite arrow, mirroring the gallery's looping card system. The gallery itself uses a continuous looping scroll between discovered artworks, encouraging players to revisit found pieces and learn more about Stereolux events." },
                     ]
@@ -102,12 +107,13 @@ const PROJECT = {
                         { type: "text",  value: "Triggered artwork unlocks only when a piece is fully visible on screen during the looping gallery scroll." },
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Built a RectTransform extension method that converts each of the four world-space corners to screen space via WorldToScreenPoint, then checks whether all four fall within the screen bounds. Unlock triggers only when the corner count reaches 4, ensuring the artwork is completely on screen before registering as seen." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/GaleryApparition.gif", caption:"Galery Apparition Demo"},
                     ]
                 },
             ],
         },
         {
-            category: "🖥️ UI / UX",
+            category: "📱 UI / UX",
             items: [
                 {
                     title: "Responsive PC & mobile interfaces",
@@ -195,6 +201,10 @@ const PROJECT = {
             caption: "Level Navigation",
         },
         {
+            src:"../../Sources/Projects/Stereogame/ObjectDetection.gif",
+            caption:"Object Detection",
+        },
+        {
             src:     "../../Sources/Projects/Stereogame/PlayerNav.gif",
             caption: "Player Movements",
         },
@@ -220,6 +230,6 @@ const PROJECT = {
     ],
 
     // ── Tags ──────────────────────────────────────────────────────────────────
-    tags: "Unity, C#, FMOD, DOTween, Git, WebGL, UI/UX, VFX",
+    tags: "Unity, C#, FMOD, DOTween, Git, WebGL, UI/UX, VFX, Partnership",
 
 };

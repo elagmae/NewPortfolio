@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="CSS/projects.css">
     <link rel="stylesheet" href="CSS/skills.css">
     <link rel="stylesheet" href="CSS/contacts.css">
+    <link rel="stylesheet" href="CSS/effects.css">
 
     <script src="JS/ProjectCard.js" defer></script>
     <script src="JS/DropdownMenu.js" defer></script>
@@ -109,12 +110,12 @@
     </nav-dropdown>
 
     <banner-profile>
-        <img src="Sources/Header/Profile.jpg">
+        <img class="glow-shadow" src="Sources/Header/Profile.jpg">
 
         <profile-section>
             <role-description>
                 <h2>Léa Pouthier</h2>
-                <h5> Junior Game Programmer </h5>
+                <h5 class="glow-shadow"> Junior Game Programmer </h5>
             </role-description>
             
             <p>A video game enthusiast who loves programming them.</p>
@@ -147,6 +148,8 @@
             <button data-filter="all" class="active">All Projects</button>
             <button data-filter="unity">Unity</button>
             <button data-filter="unreal">Unreal</button>
+            <button data-filter="partnership">Partnerships</button>
+            <button data-filter="in progress">In Progress</button>
 
         </projects-filter>
 
@@ -154,20 +157,12 @@
 
         <projects-grid>
 
-            <!-- <project-card class="active"
+            <project-card class="active"
                 title="Racine"
                 image="Sources/Projects/Gifs/Racine.gif"
-                tags="Unity, C#"
+                tags="Unity, C#, In Progress"
                 link="Pages/Racine/index.html">
-            </project-card> -->
-
-            <!-- <project-card class="active"
-                title="Hide & Sick"
-                image="Sources/Projects/Gifs/MMA.gif"
-                tags="Unity, C#"
-                link="Pages/HideAndSick/index.html">
-  
-            </project-card> -->
+            </project-card>
 
             <project-card class="active"
                 title="Magical Music Arena"
@@ -194,8 +189,16 @@
             <project-card class="active"
                 title="Stereogame"
                 image="Sources/Projects/Gifs/Stereogame.gif"
-                tags="Unity, C#"
+                tags="Unity, C#, Partnership"
                 link="Pages/Stereogame/index.html">           
+            </project-card>
+
+            <project-card class="active"
+                title="Hide & Sick"
+                image="Sources/Projects/Gifs/HideAndSick.gif"
+                tags="Unity, C#, Partnership, In Progress"
+                link="Pages/HideAndSick/index.html">
+  
             </project-card>
             
             <project-card class="active"
