@@ -72,7 +72,7 @@ const PROJECT = {
             ],
         },
         {
-            category: "🖥️ UI / UX",
+            category: "📱 UI / UX",
             items: [
                 {
                     title: "Responsive PC & mobile interfaces",

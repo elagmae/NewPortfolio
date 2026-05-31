@@ -53,9 +53,9 @@ banner-profile
         margin-top: 4rem;
         width: inherit;
 
-        background-size:cover;
+        background-size:contain;
         background-image:
-        linear-gradient(#030112a1, #030112a1),
+        linear-gradient(#03011243, #030112a1),
         url("../Sources/Header/Banner.png");
 
         -webkit-mask-image: url("../Sources/Header/WaveMask.png");
