@@ -15,13 +15,125 @@
     <link rel="stylesheet" href="CSS/skills.css">
     <link rel="stylesheet" href="CSS/contacts.css">
     <link rel="stylesheet" href="CSS/effects.css">
+    <link rel="stylesheet" href="CSS/langToggle.css">
 
     <script src="JS/ProjectCard.js" defer></script>
     <script src="JS/DropdownMenu.js" defer></script>
     <script src="JS/ProjectFilter.js" defer></script>
     <script src="JS/SkillSet.js" defer></script>
 
-    <title>POUTHIER Léa - Portfolio</title>
+    <script src="home.data.js"></script>
+    <script src="home.data.fr.js"></script>
+
+    <script defer>
+
+    // ── LangToggle inline (page principale, pas de renderPage sur projet) ──────
+
+    const STORAGE_KEY = "portfolio-lang";
+
+    function getCurrentLang() {
+        return localStorage.getItem(STORAGE_KEY) || "en";
+    }
+
+    function updateSlider(activeBtn, firstBtn) {
+        const slider = document.querySelector("#lang-toggle .lt-slider");
+        if (!slider) return;
+        slider.style.width     = activeBtn.offsetWidth + "px";
+        slider.style.transform = `translateX(${activeBtn.offsetLeft - firstBtn.offsetLeft}px)`;
+    }
+
+    function renderHome(data) {
+        document.title = data.title;
+
+        // ── Nav ───────────────────────────────────────────────────────────────
+        document.getElementById("nav-about").textContent    = data.nav.about;
+        document.getElementById("nav-projects").textContent = data.nav.projects;
+        document.getElementById("nav-skills").textContent   = data.nav.skills;
+        document.getElementById("nav-contact").textContent  = data.nav.contact;
+
+        // dropdown mobile aussi
+        document.getElementById("drop-about").textContent    = data.nav.about;
+        document.getElementById("drop-projects").textContent = data.nav.projects;
+        document.getElementById("drop-skills").textContent   = data.nav.skills;
+        document.getElementById("drop-contact").textContent  = data.nav.contact;
+
+        // ── Banner ────────────────────────────────────────────────────────────
+        document.getElementById("banner-role").textContent        = data.banner.role;
+        document.getElementById("banner-description").textContent = data.banner.description;
+
+        // ── About ─────────────────────────────────────────────────────────────
+        document.getElementById("about-title").textContent = data.about.title;
+        document.getElementById("about-content").innerHTML =
+            data.about.paragraphs.map(p => `<p>${p}</p>`).join("");
+
+        // ── Projects ──────────────────────────────────────────────────────────
+        document.getElementById("projects-title").textContent = data.projects.title;
+        const filterEl = document.getElementById("projects-filter");
+        filterEl.innerHTML = data.projects.filters.map((f, i) =>
+            `<button data-filter="${f.value}"${i === 0 ? ' class="active"' : ''}>${f.label}</button>`
+        ).join("");
+
+        // ── Skills ────────────────────────────────────────────────────────────
+        document.getElementById("skills-title").textContent     = data.skills.title;
+        document.getElementById("skills-technical").textContent = data.skills.technical;
+        document.getElementById("skills-soft").textContent      = data.skills.soft;
+        document.getElementById("skills-soft-set").setAttribute("tags", data.skills.softTags);
+
+        // ── Contact ───────────────────────────────────────────────────────────
+        document.getElementById("contact-title").textContent       = data.contact.title;
+        document.getElementById("contact-description").textContent = data.contact.description;
+    }
+
+    function setLang(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+
+        const buttons  = document.querySelectorAll("#lang-toggle button");
+        const firstBtn = buttons[0];
+
+        buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
+        const activeBtn = document.querySelector(`#lang-toggle button[data-lang="${lang}"]`);
+        updateSlider(activeBtn, firstBtn);
+
+        const data = lang === "fr" ? HOME_FR : HOME_EN;
+        renderHome(data);
+    }
+
+    function injectToggle() {
+        const toggle = document.createElement("div");
+        toggle.id = "lang-toggle";
+        toggle.setAttribute("role", "group");
+        toggle.setAttribute("aria-label", "Language selector");
+        toggle.innerHTML = `
+            <div class="lt-slider"></div>
+            <button data-lang="en">EN</button>
+            <button data-lang="fr">FR</button>
+        `;
+        toggle.querySelectorAll("button").forEach(btn => {
+            btn.addEventListener("click", () => setLang(btn.dataset.lang));
+        });
+        document.body.appendChild(toggle);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        injectToggle();
+
+        const lang    = getCurrentLang();
+        const buttons = document.querySelectorAll("#lang-toggle button");
+        const active  = document.querySelector(`#lang-toggle button[data-lang="${lang}"]`);
+
+        buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
+        requestAnimationFrame(() => updateSlider(active, buttons[0]));
+
+        renderHome(lang === "fr" ? HOME_FR : HOME_EN);
+    });
+
+    window.addEventListener("resize", () => {
+        const active   = document.querySelector("#lang-toggle button.active");
+        const firstBtn = document.querySelector("#lang-toggle button");
+        if (active && firstBtn) updateSlider(active, firstBtn);
+    });
+
+    </script>
 
 </head>
 
@@ -32,10 +144,10 @@
 
             <full-nav>
 
-                <a href="#about"> About </a>
-                <a href="#projects"> Projects </a>
-                <a href="#skills"> Skills </a>
-                <a href="#contacts"> Contact </a>
+                <a id="nav-about"    href="#about"></a>
+                <a id="nav-projects" href="#projects"></a>
+                <a id="nav-skills"   href="#skills"></a>
+                <a id="nav-contact"  href="#contacts"></a>
 
                 <divider-vertical style="height:30px;"> </divider-vertical>
 
@@ -76,10 +188,10 @@
 
     <nav-dropdown>
 
-        <a href="#about"> About </a>
-        <a href="#projects"> Projects </a>
-        <a href="#skills"> Skills </a>
-        <a href="#contacts"> Contact </a>
+        <a id="drop-about"    href="#about"></a>
+        <a id="drop-projects" href="#projects"></a>
+        <a id="drop-skills"   href="#skills"></a>
+        <a id="drop-contact"  href="#contacts"></a>
 
         <divider-horizontal> </divider-horizontal>
 
@@ -114,10 +226,10 @@
         <profile-section>
             <role-description>
                 <h2>Léa Pouthier</h2>
-                <h5 class="glow-shadow"> Junior Game Programmer </h5>
+                <h5 id="banner-role" class="glow-shadow"></h5>
             </role-description>
             
-            <p>A video game enthusiast who loves programming them.</p>
+            <p id="banner-description"></p>
         </profile-section>
 
     </banner-profile>
@@ -128,11 +240,8 @@
 
     <hero-page id="about">
 
-        <h2> About Me </h2>
-
-        <p>I am self-motivated, curious, organized, and currently focusing on UI programming (interfaces, menus, HUD), a field in which I hope to specialize.</p>
-        <p>I develop my projects using Unity or Unreal Engine, relying on Git to track and manage versioning.</p>
-        <!-- Put achievements in colored images ? cf. Figma -->
+        <h2 id="about-title"></h2>
+        <div id="about-content"></div>
 
     </hero-page>
 
@@ -140,17 +249,9 @@
 
     <projects id="projects">
 
-        <h2> Projects </h2>
+        <h2 id="projects-title"></h2>
 
-        <projects-filter>
-
-            <button data-filter="all" class="active">All Projects</button>
-            <button data-filter="unity">Unity</button>
-            <button data-filter="unreal">Unreal</button>
-            <button data-filter="partnership">Partnerships</button>
-            <button data-filter="in progress">In Progress</button>
-
-        </projects-filter>
+        <projects-filter id="projects-filter"></projects-filter>
 
         <br>
 
@@ -168,7 +269,6 @@
                 image="Sources/Projects/Gifs/MMA.gif"
                 tags="Unity, C#"
                 link="Pages/MMA/index.html">
-  
             </project-card>
 
             <project-card class="active"
@@ -197,7 +297,6 @@
                 image="Sources/Projects/Gifs/HideAndSick.gif"
                 tags="Unity, C#, Partnership, In Progress"
                 link="Pages/HideAndSick/index.html">
-  
             </project-card>
             
             <project-card class="active"
@@ -213,37 +312,27 @@
 
     <skills id="skills">
 
-        <h2>Skills</h2>
+        <h2 id="skills-title"></h2>
 
-        <h4> Technical Skills </h4>
-        <skill-set
-        tags="C#, Blueprints, Unity, Unreal, Illustrator, HTML, CSS, JS, SQL">
-        </skill-set>
+        <h4 id="skills-technical"></h4>
+        <skill-set tags="C#, Blueprints, Unity, Unreal, Illustrator, HTML, CSS, JS, SQL"></skill-set>
 
-        <h4> Soft Skills </h4>
-        <skill-set
-        tags="Curiosity, Team work, Rigour, Organisation, Communication">
-        </skill-set>
+        <h4 id="skills-soft"></h4>
+        <skill-set id="skills-soft-set"></skill-set>
 
     </skills>
-
-    <!-- <studies>
-
-        <study-set> Game Design Bachelor - e-artsup Nantes </study-set>
-
-    </studies> -->
 
     <divider-horizontal style="width: 80%;"></divider-horizontal>
 
     <contacts id="contacts">
 
-        <h2>Contact me here</h2>
-        <p> I'm always interested in new projects and opportunities </p>
+        <h2 id="contact-title"></h2>
+        <p id="contact-description"></p>
 
         <br>
 
         <main-links>
-            <a href=https://mail.google.com/mail/?view=cm&to=lea.pouthier@gmail.com&su=Demande%20de%20contact"">Email Me</a>
+            <a href="https://mail.google.com/mail/?view=cm&to=lea.pouthier@gmail.com&su=Demande%20de%20contact">Email Me</a>
             <a href="https://github.com/elagmae">Github</a>
             <a href="https://www.linkedin.com/in/elagmae/">Linkedin</a>
         </main-links>

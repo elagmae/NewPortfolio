@@ -4,11 +4,24 @@ class SkillSet extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
+  static get observedAttributes() {
+    return ["tags"];
+  }
+
+  attributeChangedCallback() {
+    this.render();
+  }
+
   connectedCallback() {
+    this.render();
+  }
+
+  render() {
     const tags = (this.getAttribute("tags") || "")
       .split(",")
       .map(t => t.trim())
       .filter(Boolean);
+
 
     this.shadowRoot.innerHTML = `
       <style>

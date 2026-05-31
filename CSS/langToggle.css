@@ -1,0 +1,53 @@
+/* ── Language Toggle ─────────────────────────────────────────────────────────── */
+
+#lang-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, rgba(255,255,255,0.15));
+    border-radius: 999px;
+    padding: 3px;
+    cursor: pointer;
+    user-select: none;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+#lang-toggle .lt-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    height: calc(100% - 6px);
+    border-radius: 999px;
+    background: #fff;
+    pointer-events: none;
+    will-change: transform;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                width    0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#lang-toggle button {
+    position: relative;
+    z-index: 1;
+    border: none;
+    background: transparent;
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+#lang-toggle button.active {
+    color: #111;
+}

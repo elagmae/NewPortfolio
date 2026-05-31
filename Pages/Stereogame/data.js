@@ -1,4 +1,4 @@
-const PROJECT = {
+const PROJECT_EN = {
 
     // ── Général ───────────────────────────────────────────────────────────────
     title:   "Stereogame",
@@ -7,6 +7,16 @@ const PROJECT = {
     context: `Multiplayer web game created in collaboration with
               Stereolux and E-artsup Nantes.
               Selected among 4 competing teams during the Stereogame event.`,
+
+    ui: 
+    {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+    },
 
     // ── Pitch ─────────────────────────────────────────────────────────────────
     pitch: [
@@ -20,6 +30,56 @@ const PROJECT = {
 
     // ── Contributions ─────────────────────────────────────────────────────────
     contributions: [
+        {
+            category: "📃 Organisation",
+            items: [
+                {
+                    title: "Version control and task tracking",
+                    content: [
+                        { type: "title", value: "🔧 What?" },
+                        { type: "text",  value: "Set up and maintained the team's version control workflow and task management system throughout the project." },
+                        { type: "title", value: "💡 How?" },
+                        { type: "text",  value: "Used Git with Fork as a GUI client. Established a branching strategy tied to Jira tickets, with each feature or fix developed on a dedicated branch named after its corresponding ticket, then merged via pull request." },
+                        { type: "text",  value: "Managed the Jira board to track task progress across the team, keeping tickets up to date and ensuring work was distributed and visible at all times." },
+                        {
+                            type:"image",
+                            src:"../../Sources/Projects/Stereogame/Fork.png",
+                            caption:"Fork",
+                        },
+                        {
+                            type:"image",
+                            src:"../../Sources/Projects/Stereogame/github.png",
+                            caption:"Github",
+                        },
+                    ]
+                },
+                {
+                    title: "Project documentation and client deliverables",
+                    content: [
+                        { type: "title", value: "🔧 What?" },
+                        { type: "text",  value: "Built and maintained a centralized Notion workspace covering all project documentation and client-facing material." },
+                        { type: "title", value: "💡 How?" },
+                        { type: "text",  value: "The workspace included the client brief, inspiration folders, moodboards, concept references, a one-page GDD, deadline tracking, time logs, player feedbacks, and a curated list of important links." },
+                        { type: "text",  value: "Prepared and delivered a client presentation slideshow summarizing the game concept, visual direction, and key design decisions." },
+                        {
+                            type:"image",
+                            src:"../../Sources/Projects/Stereogame/Notion.png",
+                            caption:"Notion Board",
+                        },
+                        {
+                            type:"image",
+                            src:"../../Sources/Projects/Stereogame/Feedbacks.png",
+                            caption:"Feedbacks list",
+                        },
+                        {
+                            type:"image",
+                            src:"../../Sources/Projects/Stereogame/Onepage.png",
+                            caption:"GDD",
+                        },
+                    ]
+                },
+            ],
+        },
         {
             category: "🎮 Game Design",
             items: [
@@ -42,6 +102,11 @@ const PROJECT = {
                         { type: "text",  value: "Iterated on detection zone sizing and level difficulty across the game's multiple scenes." },
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Implemented custom Gizmos for each hidden object's detection radius directly in the Unity editor, so level designers could freely adjust zones without touching code. This allowed the whole team to tune difficulty without programmer intervention." },
+                        {
+                            type:"image",
+                            src:"../../Sources/Projects/Stereogame/Proto/detection-range.gif",
+                            caption:"Detection distance gizmos",
+                        },
                     ]
                 },
                 {
@@ -63,11 +128,18 @@ const PROJECT = {
                     content: [
                         { type: "title", value: "🔧 What?" },
                         { type: "text",  value: "Built the core torch mechanic: the player's light follows the cursor or finger across a darkened scene to reveal hidden objects." },
-                        
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/player_move.gif", caption:"Player Movement Prototype"},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/PlayerNav.gif", caption:"Player movement mecanic"},
+
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Structured the scene as a layered UI stack: a base canvas with all hidden items, topped by a dark overlay image simulating a lightless room. The player is represented as a circular UI sprite used as a mask cutout in the overlay, revealing the real scene underneath as they move." },
-                        {type : "image", src:"../../Sources/Projects/Stereogame/PlayerNav.gif", caption:"Player movement mecanic"},
+                        
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/player-mask.png", caption:"Player Mask \"Projector\""},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/scene-mask.gif", caption:"Scene \"Projector\" Masking"},
+                
                         { type: "text",  value: "Also implemented a screen shake system and detection zone logic with editor Gizmos, giving level designers full control over per-object difficulty without code changes." },
+                        
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/gameplay_proto.gif", caption:"Object Detection Proto"},
                         {type : "image", src:"../../Sources/Projects/Stereogame/ObjectDetection.gif", caption:"Object Detection Demo"},
                     ]
                 },
@@ -89,6 +161,8 @@ const PROJECT = {
                         {type : "image", src:"../../Sources/Projects/Stereogame/GaleryNav.gif", caption:"Galery navigation demo"},
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Unlocking a level activates the corresponding navigation button and triggers a transition to the next scene. Players can also navigate backward with the opposite arrow, mirroring the gallery's looping card system. The gallery itself uses a continuous looping scroll between discovered artworks, encouraging players to revisit found pieces and learn more about Stereolux events." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/scene-nav.gif", caption:"Scene Navigation Proto"},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/transition-animations.gif", caption:"Scene Navigation Transitions"},
                     ]
                 },
                 {
@@ -105,9 +179,13 @@ const PROJECT = {
                     content: [
                         { type: "title", value: "🔧 What?" },
                         { type: "text",  value: "Triggered artwork unlocks only when a piece is fully visible on screen during the looping gallery scroll." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/galery-proto.gif", caption:"First Galery Prototyped Mecanic"},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/galery-mecanic.gif", caption:"Second Galery Prototyped Mecanic"},
+                        
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Built a RectTransform extension method that converts each of the four world-space corners to screen space via WorldToScreenPoint, then checks whether all four fall within the screen bounds. Unlock triggers only when the corner count reaches 4, ensuring the artwork is completely on screen before registering as seen." },
                         {type : "image", src:"../../Sources/Projects/Stereogame/GaleryApparition.gif", caption:"Galery Apparition Demo"},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/galery-reveal-proto.gif", caption:"Galery Apparition Proto"},
                     ]
                 },
             ],
@@ -137,6 +215,7 @@ const PROJECT = {
                         { type: "text",  value: "Integrated artist-authored animations and built custom DOTween sequences for discovery moments." },
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Drove artist animations via Animator triggers and booleans. Layered DOTween sequences for artwork reveals: a banner animation, the artwork itself animating in, and a room-lighting flash, all chained as a single sequential and overlapping sequence for a polished feel." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/animation-text.gif", caption:"Win Text Animation"},
                     ]
                 },
                 {
@@ -146,6 +225,7 @@ const PROJECT = {
                         { type: "text",  value: "Created particle effects for the full gallery state and for object discovery and easter eggs." },
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Small golden square particles float across a completed gallery to add warmth, movement, and a sense of victory. A circular burst of colored strokes plays on artwork and easter egg collection, masking the object's despawn while giving the impression the player genuinely picked something up." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/particle.gif", caption:"Galery Apparition Proto"},
                     ]
                 },
             ],
@@ -227,9 +307,23 @@ const PROJECT = {
             img:  "../../Sources/Projects/Stereogame/Presentation.png",
             alt:  "Partnership",
         },
+        {
+            href:"https://www.canva.com/design/DAG4T4ciK7k/vuusIqJQ31umE46_ydTLEg/edit",
+            img: "../../Sources/Projects/Stereogame/Diaporama.png",
+            alt:"Presentation",
+        },
+        {
+            href:"https://app.notion.com/p/GDD-One-Page-27d5e8d252eb8068b20cf214c5d50a4b?source=copy_link",
+            img: "../../Sources/Projects/Stereogame/OnePage.png",
+            alt:"One Page GDD",
+        },
+        {
+            href:"https://github.com/s4pph1r3-dev/Stereolux",
+            img:"../../Sources/Projects/Stereogame/github.png",
+            alt:"Github Page",
+        },
     ],
 
     // ── Tags ──────────────────────────────────────────────────────────────────
     tags: "Unity, C#, FMOD, DOTween, Git, WebGL, UI/UX, VFX, Partnership",
-
 };
