@@ -216,6 +216,7 @@ const PROJECT_EN = {
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Drove artist animations via Animator triggers and booleans. Layered DOTween sequences for artwork reveals: a banner animation, the artwork itself animating in, and a room-lighting flash, all chained as a single sequential and overlapping sequence for a polished feel." },
                         {type : "image", src:"../../Sources/Projects/Stereogame/Proto/animation-text.gif", caption:"Win Text Animation"},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/galery_animation.gif", caption:"Galery Reveal Animation"},
                     ]
                 },
                 {
@@ -226,6 +227,7 @@ const PROJECT_EN = {
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Small golden square particles float across a completed gallery to add warmth, movement, and a sense of victory. A circular burst of colored strokes plays on artwork and easter egg collection, masking the object's despawn while giving the impression the player genuinely picked something up." },
                         {type : "image", src:"../../Sources/Projects/Stereogame/Proto/particle.gif", caption:"Galery Apparition Proto"},
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/galery-part.gif", caption:"Galery Win Particles"},
                     ]
                 },
             ],
@@ -241,6 +243,7 @@ const PROJECT_EN = {
                         { type: "title", value: "💡 How?" },
                         { type: "text",  value: "Used FMOD Studio Event Emitters on individual objects to trigger sound effects on click or gameplay events. Built an AudioManager to handle music playback and level-based transitions: a single track can loop across several levels before switching at a defined threshold." },
                         { type: "text",  value: "SFX were kept on per-object SerializeFields rather than centralized, intentionally preserving existing work from a teammate and avoiding costly refactors in a short-timeline project." },
+                        {type : "image", src:"../../Sources/Projects/Stereogame/Proto/audio-manager.png", caption:"Audio Manager Inspector"},
                     ]
                 },
             ],
