@@ -1,32 +1,34 @@
-const filterButtons = document.querySelectorAll("projects-filter button");
-const projectCards = document.querySelectorAll("project-card");
+// On attend que tout soit prêt : custom elements + rendu dynamique des filtres
+customElements.whenDefined("project-card").then(() => {
 
-filterButtons.forEach(button => {
+  // Les boutons de filtre sont injectés par renderHome(), donc on délègue
+  // l'écoute au conteneur parent plutôt qu'aux boutons directs
+  const filterContainer = document.getElementById("projects-filter");
+  const projectCards = document.querySelectorAll("project-card");
 
-  button.addEventListener("click", () => {
+  if (!filterContainer) return;
 
-    // retirer active partout
-    filterButtons.forEach(btn => {
+  filterContainer.addEventListener("click", (e) => {
+
+    const button = e.target.closest("button");
+    if (!button) return;
+
+    // Retirer active partout
+    filterContainer.querySelectorAll("button").forEach(btn => {
       btn.classList.remove("active");
     });
 
-    // ajouter active au bouton cliqué
+    // Ajouter active au bouton cliqué
     button.classList.add("active");
 
     const filter = button.dataset.filter.toLowerCase();
 
     projectCards.forEach(card => {
+      const tags = (card.getAttribute("tags") || "").toLowerCase();
 
-      const tags = (card.getAttribute("tags") || "")
-        .toLowerCase();
-
-      if (filter === "all" || tags.includes(filter)) 
-      {
+      if (filter === "all" || tags.includes(filter)) {
         card.classList.add("active");
-      } 
-
-      else 
-      {
+      } else {
         card.classList.remove("active");
       }
     });
