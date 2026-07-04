@@ -14,17 +14,18 @@ const HOME_EN = {
     // ── Banner ────────────────────────────────────────────────────────────────
     banner: {
         name:        "Léa Pouthier",
-        role:        "Junior Game Programmer",
+        role:        "UI & Gameplay Programmer",
         description: "A video game enthusiast who loves programming them.",
     },
 
     // ── About ─────────────────────────────────────────────────────────────────
     about: {
         title:      "About Me",
-        paragraphs: [
-            "I am self-motivated, curious, organized, and currently focusing on UI programming (interfaces, menus, HUD), a field in which I hope to specialize.",
-            "I develop my projects using Unity or Unreal Engine, relying on Git to track and manage versioning.",
-        ],
+paragraphs: [
+    "I'm Léa, a graduate with a Bachelor in Game Design, specializing in UI and gameplay programming in Unity.",
+    "What I like doing is working on interfaces and game systems until they feel good to use, not just functional. I use Unity, DOTween, Shader Graph, FMOD and the New Input System daily, and I also build my own editor tools when they can save the team time.",
+    "I'm curious, I like understanding how a system actually works under the hood, and right now I'm looking to join a team where I can keep learning.",
+],
     },
 
     // ── Projects ──────────────────────────────────────────────────────────────
@@ -37,6 +38,7 @@ const HOME_EN = {
             { label: "Partnerships",  value: "partnership" },
             { label: "In Progress",   value: "in progress" },
         ],
+        fullPage:["All my projects"],
     },
 
     // ── Skills ────────────────────────────────────────────────────────────────

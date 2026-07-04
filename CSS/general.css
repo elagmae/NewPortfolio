@@ -147,4 +147,14 @@ svg
     transform: translateY(-5px);
 }
 
+video
+{
+    display:block;
+    padding:1rem;
+    width:70%;
+    height:auto;
+    justify-self:center;
+    size:cover;
+}
+
 /* #endregion Reusables */

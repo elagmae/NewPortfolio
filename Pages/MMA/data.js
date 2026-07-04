@@ -168,7 +168,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"Attack types are resolved via inheritance: every enemy prefab holds an EnemyBehaviour subclass that exposes its special action logic (line switch, disguise reveal, feint pullback, multi-hit resilience). The base class handles movement along the beat grid while subclasses override the special action method. This kept the spawn system clean — the level data just references a prefab and an action list; polymorphism handles the rest at runtime.",
+                            value:"Attack types are resolved via inheritance: every enemy prefab holds an EnemyBehaviour subclass that exposes its special action logic (line switch, disguise reveal, feint pullback, multi-hit resilience). The base class handles movement along the beat grid while subclasses override the special action method. This kept the spawn system clean, the level data just references a prefab and an action list; polymorphism handles the rest at runtime.",
                         },
 
                         {
@@ -194,7 +194,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"A visual debug overlay showing the active beat window and each attack's expected arrival frame would have accelerated balancing significantly — all tuning was done blind during playtests.",
+                            value:"A visual debug overlay showing the active beat window and each attack's expected arrival frame would have accelerated balancing significantly, all tuning was done blind during playtests.",
                         },
                     ]
                 },
@@ -227,7 +227,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"Tying enemy behavior directly to the beat callback rather than to Update() eliminated drift between music and visuals — a critical requirement for a rhythm game. DoTween handled the interpolation between beat positions, keeping movement smooth without introducing frame-rate dependency.",
+                            value:"Tying enemy behavior directly to the beat callback rather than to Update() eliminated drift between music and visuals, a critical requirement for a rhythm game. DoTween handled the interpolation between beat positions, keeping movement smooth without introducing frame-rate dependency.",
                         },
 
                         { type: "title",  value: "⚠️ Challenges" },
@@ -274,7 +274,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"A ScriptableObject-driven approach let the narrative designer iterate on dialogue completely independently from code — no scene rebuilds, no prefab edits. The win/lose branching was the minimum needed to make combat outcomes feel meaningful without requiring a complex state machine.",
+                            value:"A ScriptableObject-driven approach let the narrative designer iterate on dialogue completely independently from code, no scene rebuilds, no prefab edits. The win/lose branching was the minimum needed to make combat outcomes feel meaningful without requiring a complex state machine.",
                         },
 
                         { type: "title",  value: "⚠️ Challenges" },
@@ -306,7 +306,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"Built a fully responsive UI for portrait Android, adapting all game elements — three combat lanes, attack buttons, health display, and combo meter — to any screen ratio without breaking gameplay geometry.",
+                            value:"Built a fully responsive UI for portrait Android, adapting all game elements, three combat lanes, attack buttons, health display, and combo meter, to any screen ratio without breaking gameplay geometry.",
                         },
 
                         { type: "title",  value: "⚙️ How?" },
@@ -320,7 +320,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"Early builds triggered the system navigation bar swipe area when players dragged from the bottom edge — the main mechanic conflicting with the OS gesture zone. Resolved by raising the input area and adding a safe zone margin using Unity's Screen.safeArea.",
+                            value:"Early builds triggered the system navigation bar swipe area when players dragged from the bottom edge, the main mechanic conflicting with the OS gesture zone. Resolved by raising the input area and adding a safe zone margin using Unity's Screen.safeArea.",
                         },
 
                         { type: "title",  value: "🚀 Improvements" },
@@ -395,7 +395,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"The ContentSizeFitter on dynamically added elements requires a forced Canvas.ForceUpdateCanvases() call before scrolling to the new bottom — without it, the scroll target is computed before the new bubble has its final size.",
+                            value:"The ContentSizeFitter on dynamically added elements requires a forced Canvas.ForceUpdateCanvases() call before scrolling to the new bottom, without it, the scroll target is computed before the new bubble has its final size.",
                         },
                     ] 
                 },
@@ -420,7 +420,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"The effect samples a screen-space UV grid at a configurable dot frequency, then compares luminance against a threshold to decide dot presence. Dot shape is driven by a motif texture (circle, diamond, or custom) rather than a hard circle function, allowing art-driven variation. A directional gradient mask — exposed as a direction vector and falloff curve — fades the halftone density toward the screen edges to avoid visual noise in the UI-heavy bottom zone.",
+                            value:"The effect samples a screen-space UV grid at a configurable dot frequency, then compares luminance against a threshold to decide dot presence. Dot shape is driven by a motif texture (circle, diamond, or custom) rather than a hard circle function, allowing art-driven variation. A directional gradient mask, exposed as a direction vector and falloff curve, fades the halftone density toward the screen edges to avoid visual noise in the UI-heavy bottom zone.",
                         },
 
                         { type: "title",  value: "💡 Why?" },
@@ -504,7 +504,7 @@ const PROJECT = {
 
                         {
                             type:"text",
-                            value:"Used Unity VFX Graph for the speed lines effect that pulses with the music — white streaks radiating from the screen center that scale in intensity with the beat strength.",
+                            value:"Used Unity VFX Graph for the speed lines effect that pulses with the music, white streaks radiating from the screen center that scale in intensity with the beat strength.",
                         },
 
                         { type: "title",  value: "⚙️ How?" },
@@ -586,9 +586,9 @@ const PROJECT = {
     outcome: [
         `Magical Music Arena was completed as a vertical slice over two months and presented to the school jury as a Devolver Digital pitch. The project received strong feedback for the originality of its concept, the quality of its art direction, and the polish of its combat feel.`,
 
-        `The vertical slice covers half of chapter one — three full levels against Tarial (Mermaid), Termischoral (Dryad), and Thuruma (Gorgon) — each with authored dialogue, unique attack patterns, and a distinct music track. Total play time lands at approximately ten minutes, in line with the brief's requirements.`,
+        `The vertical slice covers half of chapter one, three full levels against Tarial (Mermaid), Termischoral (Dryad), and Thuruma (Gorgon), each with authored dialogue, unique attack patterns, and a distinct music track. Total play time lands at approximately ten minutes, in line with the brief's requirements.`,
 
-        `The game is playable on itch.io. The most significant personal takeaways were the value of ScriptableObject-driven tooling for unblocking non-programmer teammates, and the discipline required to tune rhythm feel — a dimension of game development where subjective perception and precise timing overlap in ways that are hard to anticipate without playtesting.`,
+        `The game is playable on itch.io. The most significant personal takeaways were the value of ScriptableObject-driven tooling for unblocking non-programmer teammates, and the discipline required to tune rhythm feel, a dimension of game development where subjective perception and precise timing overlap in ways that are hard to anticipate without playtesting.`,
     ],
 
     // ── Infos sidebar ─────────────────────────────────────────────────────────

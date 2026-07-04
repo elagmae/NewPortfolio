@@ -17,3 +17,10 @@ hero-page
     display:block;
     padding:1rem;
 }
+
+#about-content
+{
+    display:block;
+    width:75%;
+    justify-self:center;
+}

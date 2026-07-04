@@ -14,17 +14,18 @@ const HOME_FR = {
     // ── Banner ────────────────────────────────────────────────────────────────
     banner: {
         name:        "Léa Pouthier",
-        role:        "Programmeuse junior en jeu vidéo",
+        role:        "UI & Gameplay Programmer",
         description: "Une passionnée de jeux vidéo qui adore les programmer.",
     },
 
     // ── About ─────────────────────────────────────────────────────────────────
     about: {
         title:      "À propos",
-        paragraphs: [
-            "Je suis autonome, curieuse, organisée, et je me concentre actuellement sur la programmation UI (interfaces, menus, HUD), un domaine dans lequel j'espère me spécialiser.",
-            "Je développe mes projets sous Unity ou Unreal Engine, en m'appuyant sur Git pour suivre et gérer le versioning.",
-        ],
+paragraphs: [
+    "Je suis Léa, diplômée d'un Bac+3 en Game Design, spécialisée en programmation UI et gameplay sous Unity.",
+    "Ce que j'aime faire, c'est bosser sur les interfaces et les systèmes de jeu jusqu'à ce qu'ils soient agréables à utiliser, pas juste fonctionnels. J'utilise Unity, DOTween, Shader Graph, FMOD et le New Input System au quotidien, et je code aussi mes propres outils d'éditeur quand ça peut faire gagner du temps à l'équipe.",
+    "Je suis curieuse, j'aime comprendre en profondeur comment un système marche, et je cherche aujourd'hui à rejoindre une équipe où je peux continuer à apprendre.",
+],
     },
 
     // ── Projects ──────────────────────────────────────────────────────────────
@@ -37,6 +38,7 @@ const HOME_FR = {
             { label: "Partenariats",     value: "partnership" },
             { label: "En cours",         value: "in progress" },
         ],
+        fullPage:["Tous mes projets"],
     },
 
     // ── Skills ────────────────────────────────────────────────────────────────
