@@ -147,14 +147,14 @@ svg
     transform: translateY(-5px);
 }
 
-video
+video 
 {
-    display:block;
-    padding:1rem;
-    width:70% !important;
-    height:auto;
-    justify-self:center;
-    object-fit: cover;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding-top:2rem;
+    padding-bottom:2rem;
+    height: auto;
 }
 
 /* #endregion Reusables */
