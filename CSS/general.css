@@ -149,12 +149,12 @@ svg
 
 video 
 {
-    display: block;
-    width: 70%;
-    margin: 0 auto;
-    padding-top:2rem;
-    padding-bottom:2rem;
-    height: auto;
+    display: block !important;
+    width: 70% !important;
+    margin: 0 auto !important;
+    padding-top:2rem !important;
+    padding-bottom:2rem !important;
+    height: auto !important;
 }
 
 /* #endregion Reusables */
