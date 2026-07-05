@@ -206,7 +206,7 @@ const PROJECT_FR = {
     // ── Captures ─────────────────────────────────────────────────────────────
     screenshots: [
         {
-            src: "../../Sources/Projects/WordleSwagger/swagger.png",
+            src: "../../Sources/Projects/WordleSwagger/Swagger.png",
             caption: "Swagger UI pour tester l’API"
         },
     ],
