@@ -3,7 +3,7 @@ const PROJECT_FR = {
     // ── Général ───────────────────────────────────────────────────────────────
     title: "Prototype Wordle API",
     label: "Backend / API REST / SQLite / Expérimentation C#",
-    banner: "../../Sources/Projects/Gifs/Wordle.gif",
+    banner: "../../Sources/Projects/Gifs/WordleSwagger.gif",
 
     context: `Prototype backend de type Wordle développé en C# avec ASP.NET Core Minimal API.
               Le projet a été conçu pour explorer les architectures REST, la persistance de données avec SQLite,
