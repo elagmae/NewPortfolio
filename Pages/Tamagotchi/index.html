@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../CSS/general.css">
+    <link rel="stylesheet" href="../CSS/navigation.css">
+    <link rel="stylesheet" href="../CSS/description.css">
+    <link rel="stylesheet" href="../../CSS/skills.css">
+    <link rel="stylesheet" href="../CSS/layout.css">
+    <link rel="stylesheet" href="../CSS/texts.css">
+    <link rel="stylesheet" href="../CSS/toggleBox.css">
+    <link rel="stylesheet" href="../CSS/linkBlock.css">
+
+    <script src="../../JS/SkillSet.js" defer></script>
+    <script src="../../JS/ToggleBlock.js" defer></script>
+    <script src="../../JS/LinkBlock.js" defer></script>
+
+    <!-- Données du projet — seul fichier à changer par projet -->
+    <script src="data.js"></script>
+
+    <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // ── Titre de l'onglet ──────────────────────────────────────────────
+        document.title = PROJECT.title;
+
+        // ── Banner ────────────────────────────────────────────────────────
+        document.querySelector("project-banner").style.backgroundImage =
+            `url(${PROJECT.banner})`;
+
+        // ── Description ───────────────────────────────────────────────────
+        document.getElementById("Label").textContent   = PROJECT.label;
+        document.getElementById("Title").textContent   = PROJECT.title;
+        document.getElementById("Context").textContent = PROJECT.context;
+
+        // ── Pitch ─────────────────────────────────────────────────────────
+        const pitchEl = document.querySelector("project-pitch");
+        pitchEl.innerHTML = "<h6>Pitch</h6>" +
+            PROJECT.pitch.map(p => `<p>${p}</p>`).join("");
+
+        // ── Contributions ─────────────────────────────────────────────────
+        const detailsEl = document.querySelector("project-details");
+        detailsEl.innerHTML = "<h6>Contributions</h6>" +
+            PROJECT.contributions.map(block => `
+                <details-block>
+                    <h5>${block.category}</h5>
+                    ${block.items.map(item => {
+                        const isEmpty = item.content.length === 1
+                            && item.content[0].type === "text"
+                            && item.content[0].value.trim() === "..."
+
+                        return `
+                            <toggle-block title="${item.title}" ${isEmpty ? 'data-empty' : ''}>
+                                ${renderContent(item.content)}
+                            </toggle-block>
+                        `
+                    }).join("")}
+                </details-block>
+            `).join("");
+
+        // ── Outcome ───────────────────────────────────────────────────────
+        const conclusionEl = document.querySelector("project-conclusion");
+        conclusionEl.innerHTML = "<h6>Outcome</h6>" +
+            PROJECT.outcome.map(p => `<p>${p}</p>`).join("");
+
+        // ── Infos sidebar ─────────────────────────────────────────────────
+        const infosEl = document.querySelector("project-infos");
+        infosEl.innerHTML = Object.entries(PROJECT.infos).map(([key, val]) => `
+            <details-block>
+                <h5>${capitalize(key)}</h5>
+                <p>${val}</p>
+            </details-block>
+        `).join("");
+
+        // ── Screenshots ───────────────────────────────────────────────────
+        const screensEl = document.querySelector("project-screens");
+        screensEl.innerHTML = "<h6>Screenshots</h6>" +
+            PROJECT.screenshots.map(s => `
+                <figure>
+                    <img src="${s.src}" alt="${s.alt ?? s.caption}">
+                    <figcaption>${s.caption}</figcaption>
+                </figure>
+            `).join("");
+
+        // ── Links ─────────────────────────────────────────────────────────
+        const linksEl = document.querySelector("project-links");
+        if (PROJECT.links && PROJECT.links.length > 0) {
+            linksEl.innerHTML = "<h6>Links</h6>" +
+                PROJECT.links.map(l => `
+                    <link-block href="${l.href}" img="${l.img}" alt="${l.alt}"></link-block>
+                `).join("");
+        } else {
+            linksEl.style.display = "none";
+        }
+
+        // ── Tags ──────────────────────────────────────────────────────────
+        const tagsEl = document.querySelector("project-tags");
+        tagsEl.innerHTML = `
+            <h6>Tags</h6>
+            <skill-set tags="${PROJECT.tags}"></skill-set>
+        `;
+
+    });
+
+    function capitalize(str) 
+    {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+function renderContent(content) {
+    if (typeof content === "string") {
+        return `<p>${content}</p>`;
+    }
+
+    const result = [];
+    let i = 0;
+
+    while (i < content.length) {
+        const block = content[i];
+
+        if (block.type === "image" || block.type === "gif") {
+            const group = [];
+            while (i < content.length && (content[i].type === "image" || content[i].type === "gif")) {
+                group.push(content[i]);
+                i++;
+            }
+
+            if (group.length === 1) {
+                const b = group[0];
+                result.push(`
+                    <figure style="display:flex;flex-direction:column;align-items:center;margin:1rem auto;width:fit-content;">
+                        <img style="object-fit:cover;width:auto;height:256px;" src="${b.src}" alt="${b.caption ?? ""}">
+                        ${b.caption ? `<figcaption style="text-align:center;margin-top:0.5rem;font-size:0.85rem;">${b.caption}</figcaption>` : ""}
+                    </figure>`);
+            } else {
+                const figures = group.map(b => `
+                    <figure style="display:flex;flex-direction:column;align-items:center;margin:0;flex:1 1 160px;min-width:0;">
+                        <img style="object-fit:cover;width:100%;height:200px;border-radius:4px;" src="${b.src}" alt="${b.caption ?? ""}">
+                        ${b.caption ? `<figcaption style="text-align:center;margin-top:0.4rem;font-size:0.8rem;">${b.caption}</figcaption>` : ""}
+                    </figure>`).join("");
+                result.push(`<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin:1rem 0;">${figures}</div>`);
+            }
+
+        } else {
+            // Tous les autres types — identique à l'original
+            switch (block.type) {
+                case "title":
+                    result.push(`<p style="font-size:medium; font-weight:bold;">${block.value}</p>`);
+                    break;
+                case "text":
+                    result.push(`<p style="line-height:1.5">${block.value}</p>`);
+                    break;
+                case "link":
+                    result.push(`<a href="${block.href}" target="_blank">${block.label}</a>`);
+                    break;
+                default:
+                    break;
+            }
+            i++;
+        }
+    }
+
+    return result.join("");
+}
+    </script>
+
+</head>
+
+<body>
+
+<header>
+    <h2>Léa Pouthier</h2>
+    <a href="../../index.html#projects" id="LongReturn">🡨 Back</a>
+    <a href="../../index.html#projects" id="ShortReturn">🡨</a>
+</header>
+
+<project-banner></project-banner>
+
+<project-main>
+
+    <project-description>
+        <span id="Label"></span>
+        <h1 id="Title"></h1>
+        <h4 id="Context"></h4>
+    </project-description>
+
+    <divider-horizontal style="width: 100%; margin-top: 1rem; margin-bottom: 1rem;"></divider-horizontal>
+
+    <projects-layout>
+
+        <projects-main>
+            <project-pitch></project-pitch>
+            <project-details></project-details>
+            <project-conclusion></project-conclusion>
+        </projects-main>
+
+        <projects-sidebar>
+            <project-infos></project-infos>
+            <project-links></project-links>
+            <project-screens></project-screens>
+            <project-tags></project-tags>
+        </projects-sidebar>
+
+    </projects-layout>
+
+</project-main>
+
+<divider-horizontal style="width: 90%; margin-top: 1rem; margin-bottom: 1rem;"></divider-horizontal>
+
+<a id="return" href="../../index.html#projects">🡨 Back to All Projects</a>
+
+</body>
+</html>

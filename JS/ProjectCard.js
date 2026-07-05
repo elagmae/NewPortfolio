@@ -59,11 +59,10 @@ class ProjectCard extends HTMLElement {
         }
 
         .tag {
-          background: rgba(0,0,0,0.6);
           padding: 4px 10px;
           border-radius: 999px;
           font-size: 12px;
-          backdrop-filter: blur(6px);
+          background: rgba(20,20,20,.85);
         }
 
         .content {

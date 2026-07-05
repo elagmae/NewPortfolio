@@ -33,10 +33,16 @@ paragraphs: [
         title: "Projects",
         filters: [
             { label: "All Projects",  value: "all"         },
+            { label: "Games",   value: "game" },
+            { label: "Features",   value: "feature" },
             { label: "Unity",         value: "unity"       },
             { label: "Unreal",        value: "unreal"      },
+            { label: "Computer",   value: "computer" },
+            { label: "Mobile",   value: "mobile" },
+            { label: "WebGL",   value: "webgl" },
             { label: "Partnerships",  value: "partnership" },
             { label: "In Progress",   value: "in progress" },
+
         ],
         fullPage:["All my projects"],
     },

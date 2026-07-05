@@ -34,6 +34,14 @@
     <script src="/JS/ToggleBlock.js" defer></script>
     <script src="/JS/LinkBlock.js" defer></script>
 
+    <script defer>
+    document.getElementById("projects-title").textContent = data.projects.title;
+    const filterEl = document.getElementById("projects-filter");
+    filterEl.innerHTML = data.projects.filters.map((f, i) =>
+            `<button data-filter="${f.value}"${i === 0 ? ' class="active"' : ''}>${f.label}</button>`
+    ).join("");
+    </script>
+
 </head>
 
 <body>
@@ -44,66 +52,95 @@
     <a href="../../index.html#projects" id="ShortReturn">🡨</a>
 </header>
 
-<projects id="projects" style="padding-top:7rem;">
+    <projects id="projects" style="padding-top:2rem;">
+
+        <h2 id="projects-title"></h2>
+
+        <projects-filter id="projects-filter"></projects-filter>
+
+        <br>
+
         <projects-grid>
 
             <project-card class="active"
                 title="Racine"
                 image="Sources/Projects/Gifs/Racine.gif"
-                tags="Unity, C#, In Progress"
+                tags="Unity, C#, Game, Tools, In Progress, Computer"
                 link="Pages/Racine/index.html">
             </project-card>
 
             <project-card class="active"
                 title="Magical Music Arena"
                 image="Sources/Projects/Gifs/MMA.gif"
-                tags="Unity, C#"
+                tags="Unity, C#, Game, Tools, Mobile"
                 link="Pages/MMA/index.html">
             </project-card>
 
             <project-card class="active"
                 title="Tranch'Orc Apocalypse"
                 image="Sources/Projects/Gifs/TranchOrc.gif"
-                tags="Unreal, Blueprints"
+                tags="Unreal, Blueprints, Game, Computer"
                 link="Pages/TranchOrc/index.html">           
             </project-card>
 
             <project-card class="active"
                 title="Farm Farm Fever"
                 image="Sources/Projects/Gifs/FFF.gif"
-                tags="Unity, C#"
+                tags="Unity, C#, Game, Computer"
                 link="Pages/FFF/index.html">           
             </project-card>
 
             <project-card class="active"
                 title="Stereogame"
                 image="Sources/Projects/Gifs/Stereogame.gif"
-                tags="Unity, C#, Partnership"
+                tags="Unity, C#, Partnership, Game, WebGL"
                 link="Pages/Stereogame/index.html">           
             </project-card>
 
             <project-card class="active"
                 title="Hide & Sick"
                 image="Sources/Projects/Gifs/HideAndSick.gif"
-                tags="Unity, C#, Partnership, In Progress"
+                tags="Unity, C#, Partnership, Game, In Progress, Computer"
                 link="Pages/HideAndSick/index.html">
             </project-card>
             
             <project-card class="active"
                 title="An Escape In The Obscurity"
                 image="Sources/Projects/Gifs/AnEscapeInTheObscurity.gif"
-                tags="Unreal, Blueprints"
+                tags="Unreal, Blueprints, Game, Computer"
                 link="Pages/AnEscapeInTheObscurity/index.html">           
             </project-card>
 
             <project-card class="active"
                 title="Hotatoe"
                 image="Sources/Projects/Gifs/Hotatoe.gif"
-                tags="Unreal, Blueprints"
+                tags="Unreal, Blueprints, Multiplayer, Game, Computer"
                 link="Pages/Hotatoe/index.html">           
             </project-card>
 
+            <project-card class="active"
+                title="Tamagotchi (online)"
+                image="Sources/Projects/Gifs/Tamagotchi.gif"
+                tags="Online, Unity Services, Features, Computer"
+                link="Pages/Tamagotchi/index.html">           
+            </project-card>
+
+            <project-card class="active"
+                title="Messenger (online)"
+                image="Sources/Projects/Gifs/Messenger.gif"
+                tags="Online, Unity Services, Features, Computer"
+                link="Pages/Messenger/index.html">           
+            </project-card>
+
+            <project-card class="active"
+                title="Wordle (online)"
+                image="Sources/Projects/Gifs/Wordle.gif"
+                tags="Online, Unity Services, Features, Computer"
+                link="Pages/Wordle/index.html">           
+            </project-card>
+
         </projects-grid>
-</projects>
+
+    </projects>
 
 </body>
