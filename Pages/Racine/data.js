@@ -1,4 +1,4 @@
-const PROJECT = {
+const PROJECT_EN = {
 
     // ── Général ───────────────────────────────────────────────────────────────
     title:   "Racine",
@@ -10,6 +10,20 @@ const PROJECT = {
             full production in January 2026. As Gameplay & UI Programmer, I was
             responsible for the game's entire user interface, several core
             gameplay systems, and multiple editor tools used by the whole team.`,
+
+    ui: {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+        infosLabels: {
+            year: "Year",
+            duration: "Duration",
+            role: "Role",
+        },
+    },
 
     // ── Pitch ─────────────────────────────────────────────────────────────────
     pitch: [

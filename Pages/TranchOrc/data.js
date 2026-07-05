@@ -1,4 +1,4 @@
-const PROJECT = {
+const PROJECT_EN = {
 
     // ── General ──────────────────────────────────────────────────────────────
     title:   "Tranch'Orc Apocalypse",
@@ -7,6 +7,19 @@ const PROJECT = {
 
     context: `School project created to explore Unreal Engine and Virtual Reality development through the creation of a fast paced rail brawler experience.`,
 
+    ui: {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+        infosLabels: {
+            year: "Year",
+            duration: "Duration",
+            role: "Role",
+        },
+    },
     // ── Pitch ────────────────────────────────────────────────────────────────
     pitch: [
         `Tranch'Orc Apocalypse is a chaotic VR rail brawler set in a brutal dieselpunk desert filled with humor, gore, and relentless action. Players surf across the dunes on a shield while fighting hordes of aggressive orc surfers during an intense chase sequence.`,

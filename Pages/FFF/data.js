@@ -1,4 +1,4 @@
-const PROJECT = {
+const PROJECT_EN = {
 
     // ── General ──────────────────────────────────────────────────────────────
     title:   "Farm Farm Fever",
@@ -6,6 +6,15 @@ const PROJECT = {
     banner:  "../../Sources/Projects/Gifs/FFF.gif",
 
     context: `A first year school project focused on creating a rhythm based farming game mixing musical gameplay, responsive UI, visual feedbacks, and dynamic level progression.`,
+
+    ui: {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+    },
 
     // ── Pitch ────────────────────────────────────────────────────────────────
     pitch: [

@@ -1,10 +1,19 @@
-const PROJECT = 
+const PROJECT_EN = 
 {
 
     // ── General ───────────────────────────────────────────────────────────────
     title:   "Tamagotchi",
     label:   "Online Prototype",
     banner:  "../../Sources/Projects/Gifs/Tamagotchi.gif",
+
+    ui: {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+    },
 
     context:
     `A university prototype exploring Unity Gaming Services through a cooperative asynchronous experience. Two players share custody of the same virtual pet, taking turns caring for it while exchanging letters and managing a shared schedule through cloud synchronized data.`,
@@ -641,7 +650,7 @@ const PROJECT =
         // ── Outcome ───────────────────────────────────────────────────────────────
     outcome:
     [
-        `Divorce Simulator successfully demonstrated how Unity Gaming Services can be combined to build a fully asynchronous multiplayer experience without relying on traditional networking. Authentication, Cloud Save and Cloud Code were integrated into a coherent backend architecture capable of synchronizing shared gameplay between two independent player accounts.`,
+        `Tamagotchi successfully demonstrated how Unity Gaming Services can be combined to build a fully asynchronous multiplayer experience without relying on traditional networking. Authentication, Cloud Save and Cloud Code were integrated into a coherent backend architecture capable of synchronizing shared gameplay between two independent player accounts.`,
 
         `The project became an excellent introduction to online backend development within Unity. Beyond simply learning Unity Services, it provided hands on experience with asynchronous programming, cloud persistence, server side validation and data architecture, all of which significantly expanded my understanding of scalable gameplay systems.`,
 
@@ -661,35 +670,13 @@ const PROJECT =
     // ── Screenshots ────────────────────────────────────────────────────────────
     screenshots:
     [
-        // {
-        //     src: "../../Sources/Projects/Gifs/DivorceSimulator.gif",
-        //     caption: "Gameplay"
-        // },
 
-        // {
-        //     src: "../../Sources/Projects/DivorceSimulator/Login.png",
-        //     caption: "Authentication"
-        // },
-
-        // {
-        //     src: "../../Sources/Projects/DivorceSimulator/Inventory.png",
-        //     caption: "Cloud Inventory"
-        // },
-
-        // {
-        //     src: "../../Sources/Projects/DivorceSimulator/Letters.png",
-        //     caption: "Letter System"
-        // }
     ],
 
     // ── Links ─────────────────────────────────────────────────────────────────
     links:
     [
-        // {
-        //     href:"",
-        //     img:"",
-        //     alt:""
-        // }
+
     ],
 
     // ── Tags ──────────────────────────────────────────────────────────────────

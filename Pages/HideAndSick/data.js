@@ -1,4 +1,4 @@
-const PROJECT = {
+const PROJECT_EN = {
 
     // ── Général ───────────────────────────────────────────────────────────────
     title:   "Hide & Sick",
@@ -8,6 +8,15 @@ const PROJECT = {
               working with garments made from recycled plastic waste.
               The game was designed as an interactive installation for a fashion
               show in Paris, combining narrative exploration and environmental storytelling.`,
+
+    ui: {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+    },
 
     // ── Pitch ─────────────────────────────────────────────────────────────────
     pitch: [

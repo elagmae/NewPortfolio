@@ -14,7 +14,7 @@ const PROJECT_FR = {
     outcome:       "Résultat",
     links:         "Liens",
     screenshots:   "Captures d'écran",
-    tags:          "Technologies",
+    tags:          "Tags",
     infosLabels: {
         year:     "Année",
         duration: "Durée",

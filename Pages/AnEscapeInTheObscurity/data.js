@@ -1,10 +1,19 @@
-const PROJECT = {
+const PROJECT_EN = {
 
     // ── Général ───────────────────────────────────────────────────────────────
     title:   "An Escape In The Obscurity",
     label:   "Computer Game",
     banner:  "../../Sources/Projects/Gifs/AnEscapeInTheObscurity.gif",
     context: `My first Unreal school project that was meant to help me learn about the engine.`,
+
+    ui: {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+    },
 
     // ── Pitch — autant de paragraphes que nécessaire ──────────────────────────
     pitch: [

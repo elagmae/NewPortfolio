@@ -1,10 +1,24 @@
-const PROJECT = {
+const PROJECT_EN = {
 
     // ── Général ───────────────────────────────────────────────────────────────
     title:   "Magical Music Arena",
     label:   "Mobile Game",
     banner:  "../../Sources/Projects/Gifs/MMA.gif",
     context: `A school year-end project with a fun brief : build a mobile game original enough to catch Devolver Digital's eye.`,
+
+    ui: {
+        pitch: "Pitch",
+        contributions: "Contributions",
+        outcome: "Outcome",
+        links: "Links",
+        screenshots: "Screenshots",
+        tags: "Tags",
+        infosLabels: {
+            year: "Year",
+            duration: "Duration",
+            role: "Role",
+        },
+    },
 
     // ── Pitch — autant de paragraphes que nécessaire ──────────────────────────
     pitch: [
