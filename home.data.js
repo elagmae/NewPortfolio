@@ -34,7 +34,7 @@ paragraphs: [
         filters: [
             { label: "All Projects",  value: "all"         },
             { label: "Games",   value: "game" },
-            { label: "Features",   value: "feature" },
+            { label: "Services",   value: "services" },
             { label: "Unity",         value: "unity"       },
             { label: "Unreal",        value: "unreal"      },
             { label: "Computer",   value: "computer" },

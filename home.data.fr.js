@@ -34,7 +34,7 @@ paragraphs: [
         filters: [
             { label: "Tous les projets", value: "all"         },
             { label: "Jeux",   value: "game" },
-            { label: "Fonctionnalités",   value: "feature" },
+            { label: "Services",   value: "services" },
             { label: "Unity",         value: "unity"       },
             { label: "Unreal",        value: "unreal"      },
             { label: "PC",   value: "computer" },
