@@ -1,7 +1,7 @@
 const HOME_EN = {
 
     // ── Meta ──────────────────────────────────────────────────────────────────
-    title: "POUTHIER Léa - Portfolio",
+    title: "Léa Pouthier - Game Developer | Portfolio jeux vidéo",
 
     // ── Header / Nav ──────────────────────────────────────────────────────────
     nav: {
